@@ -5,7 +5,8 @@
 	},
 	"dependencies": {
 		"diskdb": "^0.1.17",
-		"express": "^4.17.1"
+		"express": "^4.17.1",
+		"uuid": "^8.3.2"
 	},
 	"description": "",
 	"homepage": "https://github.com/jessehattabaugh/mobilerider-auth#readme",
