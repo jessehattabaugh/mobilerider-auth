@@ -8,19 +8,19 @@ this project creates two POST endpoints
 
 ## to test
 
-# `$ npm install`
-# `$ npm start`
-# `curl --location --request POST 'http://localhost:8080/signin' \
+1. `$ npm install`
+2. `$ npm start`
+3. `curl --location --request POST 'http://localhost:8080/signin' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "username": "user1",
     "password": "123"
 }'`
-# assert return value is in the form `{token: UUID}`
-# assert the file `/db/sessions.json` should contain the UUID
-# `curl --location --request POST 'http://localhost:8080/signout' \
+4. assert return value is in the form `{token: UUID}`
+5. assert the file `/db/sessions.json` should contain the UUID
+6. `curl --location --request POST 'http://localhost:8080/signout' \
 --header 'Authorization: Bearer UUID'` where UUID is the UUID asserted above
-# assert that the file `/db/sessions.json` now has a record with the UUID and a field `signed_out_at`
+7. assert that the file `/db/sessions.json` now has a record with the UUID and a field `signed_out_at`
 
 ### Note, only one session can be created at a time
 
