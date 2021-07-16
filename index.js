@@ -15,9 +15,14 @@ app.post('/signin', (req, res) => {
 	console.info(`/signin username: ${username} password: ${password}`);
 	const user = db.users.findOne({ username });
 	if (user.password === password) {
-		const token = uuidv4();
-		db.sessions.save({ username: user.username, token });
-		res.json({ token });
+		const ongoingSessions = db.sessions.find({ username: user.username, signed_out_at: null });
+		if (ongoingSessions.length) {
+			res.sendStatus(401);
+		} else {
+			const token = uuidv4();
+			db.sessions.save({ username: user.username, token });
+			res.json({ token });
+		}
 	} else {
 		res.sendStatus(401);
 	}
