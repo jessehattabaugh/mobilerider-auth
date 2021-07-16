@@ -1,22 +1,23 @@
 {
-  "name": "mobilerider-auth",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jessehattabaugh/mobilerider-auth.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jessehattabaugh/mobilerider-auth/issues"
-  },
-  "homepage": "https://github.com/jessehattabaugh/mobilerider-auth#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+	"author": "Jesse Hattabaugh",
+	"bugs": {
+		"url": "https://github.com/jessehattabaugh/mobilerider-auth/issues"
+	},
+	"dependencies": {
+		"express": "^4.17.1"
+	},
+	"description": "",
+	"homepage": "https://github.com/jessehattabaugh/mobilerider-auth#readme",
+	"license": "ISC",
+	"main": "index.js",
+	"name": "mobilerider-auth",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jessehattabaugh/mobilerider-auth.git"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node ./"
+	},
+	"version": "1.0.0"
 }
