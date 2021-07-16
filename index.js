@@ -11,19 +11,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.post('/signin', (req, res) => {
-	console.info(`/signin username: ${req.body.username} password: ${req.body.password}`);
-	const user = db.users.findOne({ username: req.body.username });
-	if (user.password === req.body.password) {
+	const { username, password } = req.body;
+	console.info(`/signin username: ${username} password: ${password}`);
+	const user = db.users.findOne({ username });
+	if (user.password === password) {
 		const token = uuidv4();
-		db.sessions.save({ username: user.username, token: token });
-		res.json({ token: token });
+		db.sessions.save({ username: user.username, token });
+		res.json({ token });
 	} else {
 		res.sendStatus(401);
 	}
 });
 
 app.post('/signout', (req, res) => {
-	console.info(`/signout token: ${req.get('Authorization')}`);
+	const token = req.get('authorization').split(' ')[1]; // "Bearer [token]"
+	console.info(`/signout token: ${token}`);
+	db.sessions.update({ token }, { signed_out_at: Date.now() });
 	res.sendStatus(200);
 });
 
